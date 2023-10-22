@@ -10,6 +10,7 @@ import {navigationRef} from './RootNavigation';
 
 import getGlobalStyles from '../utils/styles';
 
+import RegisterScreen from '../screens/unauth/RegisterScreen';
 import SignInScreen from '../screens/unauth/SignInScreen';
 
 const navTheme = {
@@ -37,6 +38,7 @@ export default function AppNavigator() {
       />
       <NavigationContainer ref={navigationRef} theme={navTheme}>
         <ParentStack.Navigator screenOptions={SCREEN_OPTIONS}>
+          <ParentStack.Screen name="Register" component={RegisterScreen} />
           <ParentStack.Screen name="SignIn" component={SignInScreen} />
         </ParentStack.Navigator>
       </NavigationContainer>
