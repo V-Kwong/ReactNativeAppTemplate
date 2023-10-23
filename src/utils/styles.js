@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, Platform, StyleSheet} from 'react-native';
 
 export function hexToRGBA(h, a = 1) {
   let r = 0,
@@ -230,3 +230,43 @@ export default function getGlobalStyles(darkMode) {
     },
   });
 }
+
+// other component values
+
+const {height, width} = Dimensions.get('window');
+
+export const SCREEN_HEIGHT = height;
+export const SCREEN_WIDTH = width;
+
+export const SAFE_AREA_VIEW_EDGE_TOP = ['top', 'right', 'left'];
+
+export const getTabBarMargin = insets =>
+  Math.max(insets.bottom, DEFAULT_SAFE_AREA_BOTTOM_PADDING) +
+  BOTTOM_NAVBAR_MARGIN;
+
+// use this when you want any list of elements to to go past the safe area bottom margin
+// we could use -getTabBarMargin, but a constant can prevent possible unnecessary re-renders and suffices
+export const LIST_UNDER_TAB_BAR_MARGIN = -100;
+
+export const KEYBOARD_AVOIDING_BEHAVIOUR =
+  Platform.OS === 'ios' ? 'padding' : '';
+
+export const KEYBOARD_AVOIDING_BEHAVIOUR_POSITION =
+  Platform.OS === 'ios' ? 'position' : '';
+
+export const SHORTER_MOBILE_SCREEN_SIZE = 825;
+
+// Collpasible Header Values
+/* https://blog.coinbase.com/coinbases-animated-tabbar-in-react-native-4b3fdd4473e */
+export const HEADER_SIZING = {
+  header: height * 0.25,
+  navbar: 75,
+};
+// we provide this bc ios allows overscrolling but android doesn't
+// so on ios because of pull to refresh / rubberbaanding we set scroll pos to negtaive header pos
+// on android we set to 0 and makeup header height diff with contentinset padding
+export const HEADER_OFFSET = Platform.OS === 'ios' ? -HEADER_SIZING.header : 0;
+
+// Bottom Tab Bar Values
+export const DEFAULT_SAFE_AREA_BOTTOM_PADDING = 15;
+export const BOTTOM_NAVBAR_MARGIN = 70;
