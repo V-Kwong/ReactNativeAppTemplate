@@ -1,6 +1,6 @@
 import React from 'react';
 import {StatusBar, View} from 'react-native';
-import {DefaultTheme, PaperProvider} from 'react-native-paper';
+import {DefaultTheme, PaperProvider, configureFonts} from 'react-native-paper';
 import {
   DefaultTheme as NavigatorDefaultTheme,
   NavigationContainer,
@@ -13,6 +13,23 @@ import getGlobalStyles, {Colors} from '../utils/styles';
 
 import RegisterScreen from '../screens/unauth/RegisterScreen';
 import SignInScreen from '../screens/unauth/SignInScreen';
+
+const fontConfig = {
+  default: {
+    regular: {
+      fontFamily: 'Lato-Regular',
+    },
+    medium: {
+      fontFamily: 'Lato-Bold',
+    },
+    light: {
+      fontFamily: 'Lato-Light',
+    },
+    thin: {
+      fontFamily: 'sans-serif-thin',
+    },
+  },
+};
 
 const navTheme = {
   ...NavigatorDefaultTheme,
@@ -34,6 +51,7 @@ export default function AppNavigator() {
     ...DefaultTheme,
     // roundness: 2,
     dark: darkMode,
+    fonts: configureFonts(fontConfig),
     colors: {
       ...DefaultTheme.colors,
       primary: Colors.primary_orange,
