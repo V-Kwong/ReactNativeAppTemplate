@@ -1,9 +1,10 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
+import {EdgeInsets} from 'react-native-safe-area-context';
 
-export function hexToRGBA(h, a = 1) {
-  let r = 0,
-    g = 0,
-    b = 0;
+export function hexToRGBA(h: string, a: number = 1) {
+  let r = '0',
+    g = '0',
+    b = '0';
 
   // 3 digits
   if (h.length == 4) {
@@ -85,7 +86,7 @@ export const Colors = {
   },
 };
 
-export const getFooterGradientBackground = darkMode =>
+export const getFooterGradientBackground = (darkMode: boolean) =>
   darkMode
     ? [
         Colors.dark_mode.footer_gradient_top,
@@ -96,7 +97,7 @@ export const getFooterGradientBackground = darkMode =>
         Colors.light_mode.footer_gradient_bottom,
       ];
 
-export default function getGlobalStyles(darkMode) {
+export default function getGlobalStyles(darkMode: boolean) {
   return StyleSheet.create({
     container: {
       flex: 1,
@@ -137,12 +138,6 @@ export default function getGlobalStyles(darkMode) {
 
     secondary_button: {
       backgroundColor: darkMode ? '#515151' : Colors.light_mode.inactive,
-    },
-
-    pieChartInactiveSlice: {
-      fill: darkMode
-        ? Colors.dark_mode.secondary
-        : Colors.light_mode.inactive_text,
     },
 
     success: {
@@ -240,7 +235,7 @@ export const SCREEN_WIDTH = width;
 
 export const SAFE_AREA_VIEW_EDGE_TOP = ['top', 'right', 'left'];
 
-export const getTabBarMargin = insets =>
+export const getTabBarMargin = (insets: EdgeInsets) =>
   Math.max(insets.bottom, DEFAULT_SAFE_AREA_BOTTOM_PADDING) +
   BOTTOM_NAVBAR_MARGIN;
 
