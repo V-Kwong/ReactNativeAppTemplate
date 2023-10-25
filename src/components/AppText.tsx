@@ -1,15 +1,22 @@
 import React, {PureComponent} from 'react';
-import {Text} from 'react-native';
-// import {connect} from 'react-redux';
+import {TextProps, Text} from 'react-native';
+import {connect} from 'react-redux';
 
-import getGlobalStyles from '../utils/styles';
+import {RootState} from '../data/reduxStore';
+import {GlobalStyles} from '../utils/styles';
 
-export default class AppText extends PureComponent {
+interface AppTextProps {
+  globalStyles: GlobalStyles;
+  style?: TextProps['style'];
+  numberOfLines?: number;
+  selectable?: boolean;
+  children: React.ReactNode;
+}
+
+class AppText extends PureComponent<AppTextProps> {
   render() {
-    // const {globalStyles, style, unselectable} = this.props;
-    const globalStyles = getGlobalStyles(false);
-
-    const {style, numberOfLines, selectable, children} = this.props;
+    const {globalStyles, style, numberOfLines, selectable, children} =
+      this.props;
 
     return (
       <Text
@@ -22,8 +29,8 @@ export default class AppText extends PureComponent {
   }
 }
 
-// const mapState = state => ({
-//   globalStyles: state.styles.globalStyles,
-// });
+const mapState = (state: RootState) => ({
+  globalStyles: state.styles.globalStyles,
+});
 
-// export default connect(mapState, null)(AppText);
+export default connect(mapState, null)(AppText);
