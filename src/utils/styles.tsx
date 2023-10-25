@@ -97,7 +97,9 @@ export const getFooterGradientBackground = (darkMode: boolean) =>
         Colors.light_mode.footer_gradient_bottom,
       ];
 
-export default function getGlobalStyles(darkMode: boolean) {
+export type GlobalStyles = ReturnType<typeof StyleSheet.create>;
+
+export default function getGlobalStyles(darkMode: boolean): GlobalStyles {
   return StyleSheet.create({
     container: {
       flex: 1,
