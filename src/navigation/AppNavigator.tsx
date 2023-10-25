@@ -14,7 +14,7 @@ import getGlobalStyles, {Colors} from '../utils/styles';
 import RegisterScreen from '../screens/unauth/RegisterScreen';
 import SignInScreen from '../screens/unauth/SignInScreen';
 
-const fontConfig = {
+const fontConfig: any = {
   default: {
     regular: {
       fontFamily: 'Lato-Regular',
@@ -47,7 +47,7 @@ export default function AppNavigator() {
   const darkMode = false;
   const globalStyles = getGlobalStyles(false);
 
-  const theme = {
+  const theme: any = {
     ...DefaultTheme,
     // roundness: 2,
     dark: darkMode,
@@ -56,9 +56,9 @@ export default function AppNavigator() {
       ...DefaultTheme.colors,
       primary: Colors.primary_orange,
       accent: Colors.primary_orange,
-      text: globalStyles.text.color,
-      placeholder: globalStyles.inactive_text.color,
-      error: globalStyles.error_text.color,
+      text: globalStyles.text.color as string,
+      placeholder: globalStyles.inactive_text.color as string,
+      error: globalStyles.error_text.color as string,
       background: 'transparent',
     },
   };
