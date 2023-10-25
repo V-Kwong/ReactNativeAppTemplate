@@ -1,4 +1,10 @@
-import {Dimensions, Platform, StyleSheet} from 'react-native';
+import {
+  Dimensions,
+  Platform,
+  StyleSheet,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import {EdgeInsets} from 'react-native-safe-area-context';
 
 export function hexToRGBA(h: string, a: number = 1) {
@@ -97,7 +103,31 @@ export const getFooterGradientBackground = (darkMode: boolean) =>
         Colors.light_mode.footer_gradient_bottom,
       ];
 
-export type GlobalStyles = ReturnType<typeof StyleSheet.create>;
+export interface GlobalStyles {
+  container: ViewStyle;
+  containerBackground: ViewStyle;
+  component_0: ViewStyle;
+  component_1: ViewStyle;
+  inactive: ViewStyle;
+  primary_button: ViewStyle;
+  secondary_button: ViewStyle;
+  success: ViewStyle;
+  error: ViewStyle;
+  text: TextStyle;
+  inactive_text: TextStyle;
+  screen_title: TextStyle;
+  screen_subtitle: TextStyle;
+  component_title: TextStyle;
+  component_text: TextStyle;
+  component_text_spaced: TextStyle;
+  caption_text: TextStyle;
+  primary_button_cta_text: TextStyle;
+  primary_button_text: TextStyle;
+  secondary_button_text: TextStyle;
+  bold_text: TextStyle;
+  error_text: TextStyle;
+  success_text: TextStyle;
+}
 
 export default function getGlobalStyles(darkMode: boolean): GlobalStyles {
   return StyleSheet.create({
