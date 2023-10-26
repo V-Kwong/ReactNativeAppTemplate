@@ -276,10 +276,10 @@ export const getTabBarMargin = (insets: EdgeInsets) =>
 export const LIST_UNDER_TAB_BAR_MARGIN = -100;
 
 export const KEYBOARD_AVOIDING_BEHAVIOUR =
-  Platform.OS === 'ios' ? 'padding' : '';
+  Platform.OS === 'ios' ? 'padding' : undefined;
 
 export const KEYBOARD_AVOIDING_BEHAVIOUR_POSITION =
-  Platform.OS === 'ios' ? 'position' : '';
+  Platform.OS === 'ios' ? 'position' : undefined;
 
 export const SHORTER_MOBILE_SCREEN_SIZE = 825;
 
