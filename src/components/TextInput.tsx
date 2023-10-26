@@ -10,21 +10,21 @@ interface TextInputProps {
   globalStyles: GlobalStyles;
   darkMode: boolean;
   style?: ViewStyle;
-  disabled: boolean;
-  error: boolean;
+  disabled?: boolean;
+  error?: boolean;
   value: string;
-  multiline: boolean;
+  multiline?: boolean;
   defaultValue?: string;
   onChangeText: (text: string) => void;
   placeholder: string;
-  requiredField: boolean;
-  characterLimit: number;
-  leftComponent: React.ReactNode;
-  rightComponent: React.ReactNode;
-  keyboardType: string;
+  requiredField?: boolean;
+  characterLimit?: number;
+  leftComponent?: React.ReactNode;
+  rightComponent?: React.ReactNode;
+  keyboardType?: string;
   forwardedRef: RefObject<typeof PaperTextInput> | null;
-  hasIcons: boolean;
-  otherTextInputProps: any;
+  hasIcons?: boolean;
+  otherTextInputProps?: any;
 }
 
 interface TextInputState {
@@ -64,14 +64,12 @@ class TextInput extends PureComponent<TextInputProps, TextInputState> {
       keyboardType,
     } = this.props;
 
-    const errorBool = value
-      ? requiredField
-        ? value.trim().length == 0 || value.length > characterLimit
-        : value.length > characterLimit
-      : requiredField
-      ? this.state.value.trim().length == 0 ||
-        this.state.value.length > characterLimit
-      : this.state.value.length > characterLimit;
+    const errorBool =
+      requiredField && (value ? value.trim().length === 0 : true)
+        ? true
+        : characterLimit && value && value.length > characterLimit
+        ? true
+        : false;
     const characterLimitColour =
       error || errorBool
         ? globalStyles.error.backgroundColor
