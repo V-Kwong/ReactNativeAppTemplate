@@ -12,7 +12,7 @@ interface TextInputProps {
   style?: ViewStyle;
   disabled?: boolean;
   error?: boolean;
-  value: string;
+  value?: string;
   multiline?: boolean;
   defaultValue?: string;
   onChangeText: (text: string) => void;
@@ -22,7 +22,7 @@ interface TextInputProps {
   leftComponent?: React.ReactNode;
   rightComponent?: React.ReactNode;
   keyboardType?: string;
-  forwardedRef: RefObject<typeof PaperTextInput> | null;
+  forwardedRef?: RefObject<typeof PaperTextInput> | null;
   hasIcons?: boolean;
   otherTextInputProps?: any;
 }
