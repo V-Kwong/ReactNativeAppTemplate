@@ -11,8 +11,8 @@ import {navigationRef} from './RootNavigation';
 
 import getGlobalStyles, {Colors} from '../utils/styles';
 
-import RegisterScreen from '../screens/unauth/RegisterScreen';
-import SignInScreen from '../screens/unauth/SignInScreen';
+import RegisterScreen from '../screens/unauthenticated/RegisterScreen';
+import SignInScreen from '../screens/unauthenticated/SignInScreen';
 
 const fontConfig: any = {
   default: {
