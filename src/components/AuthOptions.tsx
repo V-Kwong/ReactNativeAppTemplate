@@ -130,7 +130,11 @@ export default function AuthOptions({mode}: Props) {
               otherTextInputProps={PASSWORD_INPUT}
             />
           </View>
-          <Button style={localStyles.button} mode="contained" onPress={onCTA}>
+          <Button
+            style={localStyles.button}
+            mode="contained"
+            disabled={!isValidPassword(password)}
+            onPress={onCTA}>
             {title}
           </Button>
         </View>
