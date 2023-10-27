@@ -10,6 +10,13 @@ import {useSelector} from 'react-redux';
 
 import {selectGlobalStyles} from '../data/stylesSlice';
 import {KEYBOARD_AVOIDING_BEHAVIOUR, SCREEN_WIDTH} from '../utils/styles';
+import {
+  appleSignIn,
+  googleSignIn,
+  isValidPassword,
+  registerUser,
+  signInUser,
+} from '../utils/auth';
 
 import AppText from '../components/AppText';
 import TextInput from '../components/TextInput';
@@ -64,18 +71,18 @@ export default function AuthOptions({mode}: Props) {
 
   const onCTA = useCallback(() => {
     if (mode === AUTH_MODE.REGISTER) {
-      console.log('register', email, password);
+      return registerUser(email, password);
     } else if (mode === AUTH_MODE.SIGN_IN) {
-      console.log('sign in', email, password);
+      return signInUser(email, password);
     }
   }, [email, password]);
 
   const onGoogleSignIn = useCallback(() => {
-    console.log('onGoogleSignIn');
+    return googleSignIn();
   }, []);
 
   const onAppleSignIn = useCallback(() => {
-    console.log('onAppleSignIn');
+    return appleSignIn();
   }, []);
 
   return (
