@@ -1,10 +1,12 @@
 import {configureStore} from '@reduxjs/toolkit';
 
 import stylesReducer from './stylesSlice';
+import userReducer from './userSlice';
 
 const reduxStore = configureStore({
   reducer: {
     styles: stylesReducer,
+    user: userReducer,
   },
 });
 
