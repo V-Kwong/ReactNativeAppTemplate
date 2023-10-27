@@ -14,6 +14,7 @@ import {Colors, SCREEN_OPTIONS} from '../utils/styles';
 
 import RegisterScreen from '../screens/unauthenticated/RegisterScreen';
 import SignInScreen from '../screens/unauthenticated/SignInScreen';
+import MainTabNavigator from './MainTabNavigator';
 
 const fontConfig: any = {
   default: {
@@ -73,6 +74,7 @@ export default function AppNavigator() {
           <ParentStack.Navigator screenOptions={SCREEN_OPTIONS}>
             <ParentStack.Screen name="Register" component={RegisterScreen} />
             <ParentStack.Screen name="SignIn" component={SignInScreen} />
+            <ParentStack.Screen name="Main" component={MainTabNavigator} />
           </ParentStack.Navigator>
         </NavigationContainer>
       </View>
