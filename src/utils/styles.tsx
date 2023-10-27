@@ -5,7 +5,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import {EdgeInsets} from 'react-native-safe-area-context';
+import {EdgeInsets, Edges} from 'react-native-safe-area-context';
 
 export function hexToRGBA(h: string, a: number = 1) {
   let r = '0',
@@ -260,12 +260,14 @@ export default function getGlobalStyles(darkMode: boolean): GlobalStyles {
 
 // other component values
 
+export const SCREEN_OPTIONS = {headerShown: false};
+
 const {height, width} = Dimensions.get('window');
 
 export const SCREEN_HEIGHT = height;
 export const SCREEN_WIDTH = width;
 
-export const SAFE_AREA_VIEW_EDGE_TOP = ['top', 'right', 'left'];
+export const SAFE_AREA_VIEW_EDGE_TOP: Edges = ['top', 'right', 'left'];
 
 export const getTabBarMargin = (insets: EdgeInsets) =>
   Math.max(insets.bottom, DEFAULT_SAFE_AREA_BOTTOM_PADDING) +

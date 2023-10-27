@@ -6,10 +6,11 @@ import {
   NavigationContainer,
 } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {useSelector} from 'react-redux';
 
 import {navigationRef} from './RootNavigation';
-
-import getGlobalStyles, {Colors} from '../utils/styles';
+import {selectStyles} from '../data/stylesSlice';
+import {Colors, SCREEN_OPTIONS} from '../utils/styles';
 
 import RegisterScreen from '../screens/unauthenticated/RegisterScreen';
 import SignInScreen from '../screens/unauthenticated/SignInScreen';
@@ -39,13 +40,10 @@ const navTheme = {
   },
 };
 
-const SCREEN_OPTIONS = {headerShown: false};
-
 const ParentStack = createStackNavigator();
 
 export default function AppNavigator() {
-  const darkMode = false;
-  const globalStyles = getGlobalStyles(false);
+  const {darkMode, globalStyles} = useSelector(selectStyles);
 
   const theme: any = {
     ...DefaultTheme,
