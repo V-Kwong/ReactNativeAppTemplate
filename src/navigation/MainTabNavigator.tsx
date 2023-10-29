@@ -1,3 +1,4 @@
+import {useCallback} from 'react';
 import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {useSelector} from 'react-redux';
@@ -9,6 +10,8 @@ import {
   getTabBarMargin,
 } from '../utils/styles';
 
+import TabBarNavigator from '../components/TabBarNavigator';
+
 import HomeScreen from '../screens/authenticated/HomeScreen';
 
 const Tab = createBottomTabNavigator();
@@ -18,6 +21,10 @@ export default function MainTabNavigator() {
 
   const insets = useSafeAreaInsets();
 
+  const getTabBar = useCallback((props: any) => {
+    return <TabBarNavigator {...props} />;
+  }, []);
+
   return (
     <SafeAreaView
       style={globalStyles.container}
@@ -25,7 +32,7 @@ export default function MainTabNavigator() {
       <Tab.Navigator
         backBehavior="history"
         screenOptions={SCREEN_OPTIONS}
-        // tabBar={getTabBar}
+        tabBar={getTabBar}
         sceneContainerStyle={{
           paddingBottom: getTabBarMargin(insets),
         }}>
