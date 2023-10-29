@@ -9,12 +9,12 @@ import {Colors, hexToRGBA} from '../utils/styles';
 
 interface AppGradientProps {
   darkMode: boolean;
-  containerStyle: ViewStyle;
-  style: ViewStyle;
-  small: boolean;
-  disabled: boolean;
-  disabledColour: string;
-  children: ReactNode;
+  containerStyle?: ViewStyle;
+  style?: ViewStyle;
+  small?: boolean;
+  disabled?: boolean;
+  disabledColour?: string;
+  children?: ReactNode;
 }
 
 class AppGradient extends PureComponent<AppGradientProps> {
