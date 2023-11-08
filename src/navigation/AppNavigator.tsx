@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {StatusBar, View} from 'react-native';
 import {DefaultTheme, PaperProvider, configureFonts} from 'react-native-paper';
 import {
   DefaultTheme as NavigatorDefaultTheme,
   NavigationContainer,
 } from '@react-navigation/native';
+import RNBootSplash from 'react-native-bootsplash';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useSelector} from 'react-redux';
 
@@ -62,6 +63,10 @@ export default function AppNavigator() {
     },
   };
 
+  const navContainerOnReady = useCallback(() => {
+    RNBootSplash.hide({fade: true});
+  }, []);
+
   return (
     <PaperProvider theme={theme}>
       <View style={globalStyles.container}>
@@ -70,7 +75,10 @@ export default function AppNavigator() {
           backgroundColor={globalStyles.container.backgroundColor}
           translucent
         />
-        <NavigationContainer ref={navigationRef} theme={navTheme}>
+        <NavigationContainer
+          ref={navigationRef}
+          theme={navTheme}
+          onReady={navContainerOnReady}>
           <ParentStack.Navigator screenOptions={SCREEN_OPTIONS}>
             <ParentStack.Screen name="Register" component={RegisterScreen} />
             <ParentStack.Screen name="SignIn" component={SignInScreen} />

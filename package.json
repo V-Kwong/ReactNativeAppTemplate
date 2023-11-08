@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "react": "18.2.0",
     "react-native": "0.72.6",
+    "react-native-bootsplash": "^5.0.4",
     "react-native-gesture-handler": "^2.13.3",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-linear-gradient-degree": "^0.0.1",
