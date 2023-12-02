@@ -6,6 +6,8 @@ will need to add things here
 
 2. Firebase
 
+3. rename app https://github.com/junedomingo/react-native-rename https://github.com/V-Kwong/WorryFreeFinance/commit/d89b6bdce45ea6cf82ee1972275d567c1a68b158
+
 # Template
 
 Hey yo, welcome to the \_\_\_ software!
